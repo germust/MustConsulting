@@ -222,7 +222,7 @@ export async function POST(request: Request) {
     },
     body: JSON.stringify({
       from: "Sitio Must Consulting <formulario@dominio-verificado.com>",
-      to: ["germust.cs@gmail.com"],
+      to: ["info@must-consulting.com"],
       subject: `Consulta de ${data.name}`,
       text: `${data.name} (${data.company || "sin empresa"})\n${data.contact}\n${data.service}\n\n${data.message}`,
     }),

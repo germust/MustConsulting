@@ -67,7 +67,7 @@ export const siteConfig = {
   },
 
   contact: {
-    email: "germust.cs@gmail.com",
+    email: "info@must-consulting.com",
     /** Agenda de reuniones (Calendly). Se abre en una pestaña nueva; el sitio no carga scripts de Calendly. */
     calendly: "https://calendly.com/germust-cs/30min",
     whatsapp: {
