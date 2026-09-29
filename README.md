@@ -63,8 +63,6 @@ npx tsc --noEmit
 ## Estructura
 
 ```
-.github/workflows/
-  deploy-pages.yml                    Publicación automática en GitHub Pages
 public/
   brand/
     Must_Consulting_Logo_Vector.svg   Logo principal oficial (sin modificar)
@@ -79,7 +77,6 @@ src/
   lib/
     links.ts         Enlaces de WhatsApp y email
     contact-form.ts  Validación, sanitización y envío del formulario
-    paths.ts         Prefijo de subcarpeta para GitHub Pages
   components/
     layout/      Header (menú móvil accesible) y Footer
     sections/    Hero, Problems, Services, Method, EngagementModels, About, Contact
@@ -173,8 +170,7 @@ El sitio **no envía ni almacena** datos. Al enviar, la persona elige:
 ### Conectar Formspree
 
 1. Crear un formulario en <https://formspree.io> y copiar su endpoint (`https://formspree.io/f/xxxxxxx`).
-2. Definir la variable `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` con ese valor (en `.env.local`, en
-   Vercel o, para GitHub Pages, en las variables de Actions del repositorio).
+2. Definir la variable `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` con ese valor (en `.env.local` o en Vercel).
 3. Volver a publicar. El formulario pasa a enviar un POST en JSON con los campos `nombre`, `empresa`,
    `contacto`, `servicio`, `mensaje`, un asunto y un campo trampa para bots (`_gotcha`).
 
@@ -244,45 +240,6 @@ export async function POST(request: Request) {
 
 El sitio es estático, por lo que también puede publicarse en otras plataformas compatibles con
 Next.js (Netlify, Cloudflare, un servidor propio con `npm run start`).
-
----
-
-## Publicación en GitHub Pages
-
-El repositorio incluye el flujo `.github/workflows/deploy-pages.yml`, que genera el sitio como
-archivos estáticos y lo publica en GitHub Pages con cada cambio en `main`.
-
-1. **Activar Pages (una sola vez):** en el repositorio, **Settings → Pages → Build and
-   deployment → Source**, elegir **GitHub Actions**.
-2. **Publicar:** el flujo corre solo con cada push a `main`. Para lanzarlo a mano: pestaña
-   **Actions → Publicar en GitHub Pages → Run workflow**.
-3. **Ver el sitio:** queda en `https://germust.github.io/MustConsulting/`. El enlace también
-   aparece en **Settings → Pages** y en el resultado del flujo.
-
-Detalles:
-
-- Como Pages publica el sitio en la subcarpeta `/MustConsulting`, el flujo define
-  `NEXT_PUBLIC_BASE_PATH` y `NEXT_PUBLIC_SITE_URL` automáticamente. Logos, íconos y enlaces usan
-  `withBasePath` (`src/lib/paths.ts`) para funcionar tanto ahí como en la raíz de un dominio.
-- **Dominio propio:** en **Settings → Pages → Custom domain**, cargar el dominio y configurar los
-  registros DNS que indica GitHub. El flujo toma el dominio nuevo sin cambios en el código.
-- **Formulario con servicio externo:** cargar `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` en **Settings →
-  Secrets and variables → Actions → Variables**.
-- GitHub Pages no permite cabeceras HTTP propias, así que ahí no se aplican las cabeceras de
-  seguridad de `next.config.ts` (en Vercel sí).
-- Según las condiciones de GitHub, Pages no está pensado para tiendas online ni servicios de
-  software; un sitio institucional informativo como este entra en su uso habitual.
-- Conviene elegir **un** sitio oficial (Pages o Vercel) y usar solo ese dominio, para no
-  duplicar el mismo contenido en dos direcciones.
-
-Para probar la versión estática en la computadora:
-
-```bash
-STATIC_EXPORT=true npm run build   # macOS / Linux: genera la carpeta out/
-npx serve out                      # sirve los archivos en http://localhost:3000
-```
-
-En Windows (PowerShell), el primer comando es `$env:STATIC_EXPORT="true"; npm run build`.
 
 ---
 

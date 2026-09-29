@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
-import { withBasePath } from "@/lib/paths";
 import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
@@ -58,10 +57,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: withBasePath("/favicon.ico"), sizes: "32x32" },
-      { url: withBasePath(brand.monogram), type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: brand.monogram, type: "image/svg+xml" },
     ],
-    apple: [{ url: withBasePath("/apple-touch-icon.png"), sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   formatDetection: {
     telephone: false,

@@ -17,11 +17,11 @@ function subscribeToScroll(callback: () => void) {
 }
 
 type HeaderProps = {
-  /** Ruta de la portada en páginas internas; los enlaces pasan a ser "/#seccion". */
-  homePath?: string;
+  /** En páginas internas los enlaces apuntan a la portada ("/#seccion"). */
+  basePath?: string;
 };
 
-export function Header({ homePath = "" }: HeaderProps) {
+export function Header({ basePath = "" }: HeaderProps) {
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
     () => window.scrollY > SCROLL_THRESHOLD,
@@ -40,7 +40,7 @@ export function Header({ homePath = "" }: HeaderProps) {
 
   // Sección visible para resaltar la navegación (solo en la portada).
   useEffect(() => {
-    if (homePath) return;
+    if (basePath) return;
     const sections = navigation
       .map(({ id }) => document.getElementById(id))
       .filter((element): element is HTMLElement => element !== null);
@@ -56,7 +56,7 @@ export function Header({ homePath = "" }: HeaderProps) {
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, [homePath]);
+  }, [basePath]);
 
   // Menú móvil: bloqueo de scroll, Escape, foco atrapado y cierre en escritorio.
   useEffect(() => {
@@ -107,7 +107,7 @@ export function Header({ homePath = "" }: HeaderProps) {
   }, [menuOpen, closeMenu]);
 
   const solid = scrolled || menuOpen;
-  const homeHref = homePath || "#inicio";
+  const homeHref = basePath ? "/" : "#inicio";
 
   return (
     <header
@@ -128,7 +128,7 @@ export function Header({ homePath = "" }: HeaderProps) {
               return (
                 <li key={item.id}>
                   <a
-                    href={`${homePath}#${item.id}`}
+                    href={`${basePath}#${item.id}`}
                     aria-current={active ? "location" : undefined}
                     className={cn(
                       "relative rounded-md px-3 py-2 text-[0.95rem] font-medium transition-colors duration-200",
@@ -182,7 +182,7 @@ export function Header({ homePath = "" }: HeaderProps) {
               {navigation.map((item) => (
                 <li key={item.id}>
                   <a
-                    href={`${homePath}#${item.id}`}
+                    href={`${basePath}#${item.id}`}
                     onClick={() => closeMenu()}
                     aria-current={activeSection === item.id ? "location" : undefined}
                     className={cn(
