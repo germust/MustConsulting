@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/cn";
+import { withBasePath } from "@/lib/paths";
 
 type LogoProps = {
   /** "primary" sobre fondos claros, "negative" sobre fondos azul marino. */
@@ -38,7 +39,7 @@ export function Logo({ variant = "primary", className, alt = siteConfig.name, pr
       style={{ aspectRatio: `${crop.width} / ${crop.height}` }}
     >
       <Image
-        src={asset.src}
+        src={withBasePath(asset.src)}
         alt={alt}
         width={asset.width}
         height={asset.height}

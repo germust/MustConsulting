@@ -11,7 +11,7 @@ import { Logo } from "@/components/ui/Logo";
 const linkClass =
   "inline-flex items-center gap-2.5 rounded-sm text-line transition-colors duration-200 hover:text-white";
 
-export function Footer({ basePath = "" }: { basePath?: string }) {
+export function Footer({ homePath = "" }: { homePath?: string }) {
   const { contact, social, location } = siteConfig;
 
   return (
@@ -28,7 +28,7 @@ export function Footer({ basePath = "" }: { basePath?: string }) {
             <ul className="mt-5 space-y-3 text-small">
               {navigation.map((item) => (
                 <li key={item.id}>
-                  <a href={`${basePath}#${item.id}`} className={linkClass}>
+                  <a href={`${homePath}#${item.id}`} className={linkClass}>
                     {item.label}
                   </a>
                 </li>

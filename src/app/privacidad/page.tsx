@@ -6,6 +6,7 @@ import { hasFormEndpoint } from "@/lib/contact-form";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/ui/Container";
+import { withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
@@ -35,7 +36,7 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <Header basePath="/" />
+      <Header homePath={withBasePath("/")} />
       <main id="contenido" tabIndex={-1} className="bg-white pt-[68px] focus:shadow-none focus:outline-none lg:pt-[84px]">
         <Container className="py-16 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-3xl">
@@ -115,7 +116,7 @@ export default function PrivacyPage() {
           </div>
         </Container>
       </main>
-      <Footer basePath="/" />
+      <Footer homePath={withBasePath("/")} />
     </>
   );
 }

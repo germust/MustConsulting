@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/ui/Container";
+import { withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <>
-      <Header basePath="/" />
+      <Header homePath={withBasePath("/")} />
       <main id="contenido" tabIndex={-1} className="bg-ivory pt-[68px] focus:shadow-none focus:outline-none lg:pt-[84px]">
         <Container className="py-24 sm:py-32">
           <p className="mb-5 flex items-center gap-3 text-eyebrow font-semibold uppercase text-teal-dark">
@@ -29,7 +30,7 @@ export default function NotFound() {
           </Link>
         </Container>
       </main>
-      <Footer basePath="/" />
+      <Footer homePath={withBasePath("/")} />
     </>
   );
 }
