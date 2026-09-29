@@ -77,6 +77,14 @@ export default function PrivacyPage() {
                 )}
               </Block>
 
+              <Block title="Reuniones agendadas">
+                <p>
+                  Para agendar una reunión, el sitio enlaza a Calendly, un servicio externo. Los datos que se ingresen
+                  allí (por ejemplo, nombre, correo y horario elegido) quedan sujetos a la política de privacidad de
+                  Calendly y se usan solo para coordinar la reunión.
+                </p>
+              </Block>
+
               <Block title="Finalidad">
                 <p>
                   Los datos se utilizan únicamente para responder la consulta y continuar la conversación iniciada por la

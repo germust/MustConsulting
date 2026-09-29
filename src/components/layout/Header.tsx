@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, MessageCircle, X } from "lucide-react";
+import { CalendarDays, Menu, MessageCircle, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ctaLabels, navigation, type SectionId } from "@/config/content";
 import { siteConfig } from "@/config/site";
@@ -147,14 +147,14 @@ export function Header({ basePath = "" }: HeaderProps) {
         </nav>
 
         <a
-          href={generalWhatsappUrl}
+          href={siteConfig.contact.calendly}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden min-h-11 items-center gap-2 rounded-[10px] bg-teal px-5 text-[0.95rem] font-semibold text-white transition-colors duration-200 hover:bg-teal-dark lg:inline-flex"
         >
-          <MessageCircle size={18} strokeWidth={1.75} aria-hidden="true" />
+          <CalendarDays size={18} strokeWidth={1.75} aria-hidden="true" />
           {ctaLabels.meeting}
-          <span className="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
+          <span className="sr-only"> (se abre en una pestaña nueva)</span>
         </a>
 
         <button
@@ -198,15 +198,26 @@ export function Header({ basePath = "" }: HeaderProps) {
           </nav>
           <div className="mt-auto pt-10">
             <a
-              href={generalWhatsappUrl}
+              href={siteConfig.contact.calendly}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => closeMenu()}
               className="flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-teal px-6 font-semibold text-white transition-colors duration-200 hover:bg-teal-dark"
             >
-              <MessageCircle size={18} strokeWidth={1.75} aria-hidden="true" />
+              <CalendarDays size={18} strokeWidth={1.75} aria-hidden="true" />
               {ctaLabels.meeting}
-              <span className="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
+              <span className="sr-only"> (se abre en una pestaña nueva)</span>
+            </a>
+            <a
+              href={generalWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => closeMenu()}
+              className="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] border border-teal px-6 font-semibold text-teal-dark transition-colors duration-200 hover:bg-surface"
+            >
+              <MessageCircle size={18} strokeWidth={1.75} aria-hidden="true" />
+              {ctaLabels.whatsapp}
+              <span className="sr-only"> (se abre en una pestaña nueva)</span>
             </a>
             <p className="mt-4 text-center text-small text-muted">
               {siteConfig.contact.whatsapp.display} · {siteConfig.location.short}

@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageCircle, UserRound } from "lucide-react";
+import { CalendarDays, Mail, MapPin, MessageCircle, UserRound } from "lucide-react";
 import type { ReactNode } from "react";
 import { contact, ctaLabels, services } from "@/config/content";
 import { siteConfig } from "@/config/site";
@@ -69,7 +69,10 @@ export function Contact() {
           </ul>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href={generalWhatsappUrl} leadingIcon={<MessageCircle size={18} strokeWidth={1.75} />} className="w-full sm:w-auto">
+            <ButtonLink href={data.calendly} leadingIcon={<CalendarDays size={18} strokeWidth={1.75} />} className="w-full sm:w-auto">
+              {ctaLabels.meeting}
+            </ButtonLink>
+            <ButtonLink href={generalWhatsappUrl} variant="secondary-dark" leadingIcon={<MessageCircle size={18} strokeWidth={1.75} />} className="w-full sm:w-auto">
               {ctaLabels.whatsapp}
             </ButtonLink>
             <ButtonLink href={generalMailtoUrl} variant="secondary-dark" leadingIcon={<Mail size={18} strokeWidth={1.75} />} className="w-full sm:w-auto">

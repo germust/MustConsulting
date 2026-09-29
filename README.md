@@ -97,6 +97,9 @@ Todo se edita en **`src/config/site.ts`**; ningún componente repite estos datos
 - **Teléfono / WhatsApp:** `contact.whatsapp.display` (cómo se ve) y `contact.whatsapp.number`
   (solo dígitos con código de país, usado en `https://wa.me/`).
 - **Correo:** `contact.email`.
+- **Agenda de reuniones:** `contact.calendly` (hoy `https://calendly.com/germust-cs/30min`). La usan
+  los botones "Agendar una reunión" del encabezado, el menú móvil, el hero y Contacto. Es un enlace
+  que se abre en otra pestaña: el sitio no carga scripts ni cookies de Calendly.
 - **LinkedIn:** `social.linkedin` (hoy `https://www.linkedin.com/company/mustconsulting/`). Aparece en
   Sobre Must, Contacto, Footer y en el JSON-LD; si se deja vacío, el enlace no se muestra.
 - **Mensajes precargados de WhatsApp:** el general está en `whatsappMessages.general`

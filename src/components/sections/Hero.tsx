@@ -1,6 +1,6 @@
-import { ArrowDown, MessageCircle } from "lucide-react";
+import { ArrowDown, CalendarDays } from "lucide-react";
 import { ctaLabels, hero } from "@/config/content";
-import { generalWhatsappUrl } from "@/lib/links";
+import { siteConfig } from "@/config/site";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/icons";
@@ -22,12 +22,11 @@ export function Hero() {
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink
-              href={generalWhatsappUrl}
-              leadingIcon={<MessageCircle size={18} strokeWidth={1.75} />}
+              href={siteConfig.contact.calendly}
+              leadingIcon={<CalendarDays size={18} strokeWidth={1.75} />}
               className="w-full sm:w-auto"
             >
               {ctaLabels.meeting}
-              <span className="sr-only"> por WhatsApp</span>
             </ButtonLink>
             <ButtonLink
               href="#servicios"

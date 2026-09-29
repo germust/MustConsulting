@@ -28,7 +28,7 @@ export const navigation = [
 export type SectionId = (typeof navigation)[number]["id"];
 
 export const ctaLabels = {
-  meeting: "Coordinar una reunión",
+  meeting: "Agendar una reunión",
   services: "Conocer los servicios",
   whatsapp: "Escribir por WhatsApp",
   email: "Enviar un email",
