@@ -51,10 +51,8 @@ export const metadata: Metadata = {
     description: seo.description,
     images: [{ url: brand.ogImage.src, alt: brand.ogImage.alt }],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  // Versión de prueba: no se indexa salvo NEXT_PUBLIC_ALLOW_INDEXING=true.
+  robots: siteConfig.allowIndexing ? { index: true, follow: true } : { index: false, follow: false },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },

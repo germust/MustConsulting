@@ -3,6 +3,13 @@
 Sitio de una sola página para **Must Consulting** (Rosario, Santa Fe, Argentina):
 procesos, datos y cumplimiento para PyMEs.
 
+> **Versión de prueba.** El sitio final de Must Consulting es la versión animada
+> (`germust/mustconsultinganimation`), que es la que usa el dominio definitivo. Este sitio queda
+> como respaldo y no se indexa en buscadores: todas las páginas llevan `noindex` y `robots.txt` no
+> publica sitemap. El rastreo sigue permitido a propósito, para que los buscadores vean el `noindex`
+> y quiten las páginas que ya hubieran indexado. Para volver a habilitarlo, cargar
+> `NEXT_PUBLIC_ALLOW_INDEXING=true` en Vercel y volver a publicar.
+
 - Next.js 16 (App Router) + TypeScript
 - Tailwind CSS 4 con la paleta institucional como únicos colores disponibles
 - Íconos lineales de Lucide
@@ -233,6 +240,8 @@ export async function POST(request: Request) {
    no hace falta cambiar el comando de build (`npm run build`) ni el directorio de salida.
 3. En **Settings → Environment Variables**, cargar para *Production*:
    - `NEXT_PUBLIC_SITE_URL` con el dominio definitivo (cuando exista).
+   - `NEXT_PUBLIC_ALLOW_INDEXING=true` solo si este sitio vuelve a ser el principal (hoy es la
+     versión de prueba y no se indexa).
    - `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` solo si se conecta un servicio de formularios.
 4. **Deploy.** Cada push a la rama de producción vuelve a publicar el sitio; las ramas y pull
    requests generan vistas previas (Vercel les agrega `noindex` automáticamente).

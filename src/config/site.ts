@@ -46,6 +46,12 @@ export const siteConfig = {
   name: "Must Consulting",
   tagline: "Procesos, datos y cumplimiento para crecer con orden y confianza.",
   url: resolveSiteUrl(),
+  /**
+   * Versión de prueba: el sitio final de Must Consulting es la versión
+   * animada (germust/mustconsultinganimation). Este no se indexa en buscadores
+   * salvo que se active con NEXT_PUBLIC_ALLOW_INDEXING=true.
+   */
+  allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
   language: "es-AR",
   locale: "es_AR",
 
