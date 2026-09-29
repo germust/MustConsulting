@@ -64,12 +64,13 @@ export const siteConfig = {
     email: "germust.cs@gmail.com",
     whatsapp: {
       /** Número tal como se muestra en pantalla. */
-      display: "+54 341 6715384",
+      display: "+54 9 341 6715384",
       /**
-       * Número para los enlaces https://wa.me/ (solo dígitos, con código de país).
-       * Verificar: la tarjeta de presentación usa 5493416715384 (con 9).
+       * Número para los enlaces https://wa.me/ (solo dígitos, con código de país
+       * y el 9 de los celulares argentinos, igual que el QR de la tarjeta).
+       * Must Consulting confirmó que abre el chat correcto.
        */
-      number: "543416715384",
+      number: "5493416715384",
     },
   },
 

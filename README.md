@@ -17,13 +17,12 @@ procesos, datos y cumplimiento para PyMEs.
 | Dato | Dónde completarlo | Mientras tanto |
 | --- | --- | --- |
 | Dominio definitivo | Variable `NEXT_PUBLIC_SITE_URL` | En Vercel se usa el dominio del proyecto; en local, `http://localhost:3000` |
-| Formato del número de WhatsApp | `site.ts` → `contact.whatsapp.number` | Se usa `543416715384` (ver nota abajo) |
 | Servicio de formularios (opcional) | Variable `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | El formulario prepara un WhatsApp o un email |
 
-**Nota sobre WhatsApp.** El sitio usa `https://wa.me/543416715384`, tal como fue indicado. El QR de la
-tarjeta de presentación usa `5493416715384` (con 9), que es el formato internacional habitual para
-celulares argentinos. Conviene probar el enlace desde un teléfono; si no abre el chat correcto,
-cambiar `number` a `5493416715384` en `src/config/site.ts`. Todos los botones se actualizan solos.
+**WhatsApp.** El sitio usa `https://wa.me/5493416715384`: formato internacional de celulares
+argentinos (con 9), igual que el QR de la tarjeta de presentación. Must Consulting confirmó desde su
+celular que abre el chat correcto. Si el número cambia, se edita `number` en `src/config/site.ts` y
+todos los botones se actualizan solos.
 
 ---
 
