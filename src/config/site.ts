@@ -75,12 +75,10 @@ export const siteConfig = {
 
   social: {
     /**
-     * PENDIENTE: URL del perfil de LinkedIn, por ejemplo
-     * "https://www.linkedin.com/in/usuario/". Mientras esté vacía, el enlace no
-     * se muestra en la página. Al completarla aparece en Sobre Must, Contacto,
-     * Footer y en los datos estructurados (JSON-LD).
+     * Perfil de LinkedIn. Aparece en Sobre Must, Contacto, Footer y en los
+     * datos estructurados (JSON-LD). Si se deja vacío, el enlace no se muestra.
      */
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/mustconsulting",
   },
 
   /** Archivos de marca ubicados en /public/brand. */
@@ -92,20 +90,23 @@ export const siteConfig = {
       crop: officialLogoCrop as typeof officialLogoCrop | null,
     },
     /**
-     * PROVISIONAL: versión negativa derivada del logo oficial (mismos trazados;
-     * el azul pasa a blanco). Reemplazar por el archivo negativo oficial.
+     * Versión negativa para fondos azul marino: mismos trazados que el logo
+     * oficial, con el azul en blanco y el cuadrado en su verde azulado.
      */
     logoNegative: {
-      src: "/brand/logo-negative-provisional.svg",
+      src: "/brand/Must_Consulting_Logo_Negativo.svg",
       width: 2172,
       height: 724,
       crop: officialLogoCrop as typeof officialLogoCrop | null,
     },
+    /** Monograma oficial (fondo transparente). */
+    monogram: "/brand/Must_Consulting_Monograma.svg",
     /**
-     * PROVISIONAL: monograma derivado del logo oficial ("M" y cuadrado).
-     * Se usa como favicon. Reemplazar por el monograma oficial.
+     * Ícono del sitio: el monograma sobre fondo blanco, para que se vea en
+     * pestañas claras y oscuras. favicon.ico, apple-touch-icon.png,
+     * icon-192.png e icon-512.png en /public son versiones PNG del mismo ícono.
      */
-    monogram: "/brand/monogram-provisional.svg",
+    favicon: "/icon.svg",
     ogImage: {
       src: "/og-image.png",
       width: 1200,

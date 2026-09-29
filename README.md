@@ -16,10 +16,7 @@ procesos, datos y cumplimiento para PyMEs.
 
 | Dato | Dónde completarlo | Mientras tanto |
 | --- | --- | --- |
-| URL de LinkedIn | `src/config/site.ts` → `social.linkedin` | El enlace no se muestra |
 | Dominio definitivo | Variable `NEXT_PUBLIC_SITE_URL` | En Vercel se usa el dominio del proyecto; en local, `http://localhost:3000` |
-| Logo negativo oficial | `public/brand/` + `site.ts` → `brand.logoNegative` | Versión provisional derivada del logo oficial |
-| Monograma oficial | `public/brand/` + `site.ts` → `brand.monogram` | Monograma provisional derivado del logo oficial |
 | Formato del número de WhatsApp | `site.ts` → `contact.whatsapp.number` | Se usa `543416715384` (ver nota abajo) |
 | Servicio de formularios (opcional) | Variable `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | El formulario prepara un WhatsApp o un email |
 
@@ -66,9 +63,10 @@ npx tsc --noEmit
 public/
   brand/
     Must_Consulting_Logo_Vector.svg   Logo principal oficial (sin modificar)
-    logo-negative-provisional.svg     Negativo provisional (ver "Logos")
-    monogram-provisional.svg          Monograma provisional, usado como favicon
-  favicon.ico, apple-touch-icon.png, icon-192.png, icon-512.png
+    Must_Consulting_Logo_Negativo.svg Versión negativa para fondos azul marino (ver "Logos")
+    Must_Consulting_Monograma.svg     Monograma oficial (fondo transparente)
+  icon.svg                            Ícono del sitio: monograma sobre fondo blanco
+  favicon.ico, apple-touch-icon.png, icon-192.png, icon-512.png   Versiones PNG del ícono
   og-image.png                        Imagen para redes sociales (1200 × 630)
 src/
   config/
@@ -100,8 +98,8 @@ Todo se edita en **`src/config/site.ts`**; ningún componente repite estos datos
 - **Teléfono / WhatsApp:** `contact.whatsapp.display` (cómo se ve) y `contact.whatsapp.number`
   (solo dígitos con código de país, usado en `https://wa.me/`).
 - **Correo:** `contact.email`.
-- **LinkedIn:** `social.linkedin`, por ejemplo `"https://www.linkedin.com/in/usuario/"`. Al
-  completarlo aparece en Sobre Must, Contacto, Footer y en el JSON-LD.
+- **LinkedIn:** `social.linkedin` (hoy `https://www.linkedin.com/in/mustconsulting`). Aparece en
+  Sobre Must, Contacto, Footer y en el JSON-LD; si se deja vacío, el enlace no se muestra.
 - **Mensajes precargados de WhatsApp:** el general está en `whatsappMessages.general`
   (`site.ts`); los de cada servicio y modalidad, en `src/config/content.ts`.
 - **Textos de las secciones:** `src/config/content.ts`.
@@ -131,20 +129,22 @@ Los archivos se usan tal cual: el sitio nunca redibuja el logo ni lo reemplaza p
 - **Margen del lienzo.** El SVG oficial tiene margen vacío alrededor del logotipo (lienzo de
   2172 × 724). El componente `Logo` lo recorta visualmente con CSS, sin tocar el archivo, usando
   `crop` en `site.ts`. Si se reemplaza por un archivo sin margen, poner `crop: null`.
-- **Logo negativo** (`logo-negative-provisional.svg`): **provisional**. No se entregó una versión
-  negativa, así que se generó a partir del logo oficial con los mismos trazados y proporciones,
-  cambiando solo el azul por blanco (el cuadrado verde azulado conserva su color). Se usa en el
-  footer sobre azul marino.
-- **Monograma** (`monogram-provisional.svg`): **provisional**. Se armó con la "M" y el cuadrado del
-  logo oficial, sin redibujarlos, sobre un fondo blanco para que funcione como favicon.
+- **Logo negativo** (`Must_Consulting_Logo_Negativo.svg`): preparado a pedido de Must Consulting a
+  partir del logo oficial, con los mismos trazados y proporciones: solo el azul pasa a blanco (el
+  cuadrado verde azulado conserva su color). Se usa en el footer sobre azul marino.
+- **Monograma** (`Must_Consulting_Monograma.svg`): monograma aprobado ("M" con trazo superior y
+  cuadrado). Se recibió como imagen y se vectorizó con bordes rectos, sin cambios de diseño, con los
+  colores planos del logo oficial (igual que el logo principal, que también es un trazado del PNG
+  aprobado). `public/icon.svg` lo muestra sobre un fondo blanco redondeado para el favicon.
 
 Para usar los archivos oficiales:
 
 1. Copiar el archivo a `public/brand/` (se puede mantener su nombre original).
 2. Actualizar la ruta en `src/config/site.ts` (`brand.logoNegative.src` o `brand.monogram`) y, si
    el lienzo cambia, `width`, `height` y `crop`.
-3. Si cambia el monograma, regenerar `public/favicon.ico`, `apple-touch-icon.png` (180 px),
-   `icon-192.png` e `icon-512.png` con cualquier generador de favicons a partir del SVG nuevo.
+3. Si cambia el monograma, actualizar `public/icon.svg` y regenerar `public/favicon.ico`,
+   `apple-touch-icon.png` (180 px), `icon-192.png` e `icon-512.png` con cualquier generador de
+   favicons a partir del SVG nuevo.
 4. `public/og-image.png` usa el logo principal; reemplazarlo si se quiere otra imagen para redes.
 
 **Imagen del hero.** No se entregó una imagen institucional, por lo que el hero usa una composición
