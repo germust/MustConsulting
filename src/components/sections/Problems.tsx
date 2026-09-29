@@ -7,7 +7,7 @@ import { revealDelay } from "@/lib/reveal";
 
 export function Problems() {
   return (
-    <section aria-labelledby="problemas-titulo" id="problemas" className="bg-white py-20 sm:py-24 lg:py-32">
+    <section aria-labelledby="problemas-titulo" id="problemas" className="bg-white py-12 sm:py-16 lg:py-20">
       <Container className="grid gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4" data-reveal>
           <SectionHeader id="problemas-titulo" eyebrow="Desafíos habituales" title={problems.title} intro={problems.intro} />

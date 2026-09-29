@@ -9,7 +9,7 @@ import { HeroVisual } from "@/components/visuals/HeroVisual";
 export function Hero() {
   return (
     <section id="inicio" aria-labelledby="inicio-titulo" className="relative overflow-hidden bg-ivory pt-[68px] lg:pt-[84px]">
-      <Container className="grid items-center gap-12 pt-12 pb-20 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pt-20 lg:pb-28 xl:pt-24">
+      <Container className="grid items-center gap-12 pt-12 pb-12 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pt-20 lg:pb-20 xl:pt-24">
         <div className="lg:col-span-7">
           <p className="mb-6 flex items-center gap-3 text-eyebrow font-semibold text-teal-dark">
             <span className="h-px w-8 bg-teal" aria-hidden="true" />

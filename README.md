@@ -97,7 +97,7 @@ Todo se edita en **`src/config/site.ts`**; ningún componente repite estos datos
 - **Teléfono / WhatsApp:** `contact.whatsapp.display` (cómo se ve) y `contact.whatsapp.number`
   (solo dígitos con código de país, usado en `https://wa.me/`).
 - **Correo:** `contact.email`.
-- **LinkedIn:** `social.linkedin` (hoy `https://www.linkedin.com/in/mustconsulting`). Aparece en
+- **LinkedIn:** `social.linkedin` (hoy `https://www.linkedin.com/company/mustconsulting/`). Aparece en
   Sobre Must, Contacto, Footer y en el JSON-LD; si se deja vacío, el enlace no se muestra.
 - **Mensajes precargados de WhatsApp:** el general está en `whatsappMessages.general`
   (`site.ts`); los de cada servicio y modalidad, en `src/config/content.ts`.

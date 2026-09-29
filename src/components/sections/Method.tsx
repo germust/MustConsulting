@@ -7,7 +7,7 @@ export function Method() {
   const lastIndex = method.steps.length - 1;
 
   return (
-    <section id="como-trabajamos" aria-labelledby="metodo-titulo" className="bg-white py-20 sm:py-24 lg:py-32">
+    <section id="como-trabajamos" aria-labelledby="metodo-titulo" className="bg-white py-12 sm:py-16 lg:py-20">
       <Container>
         <div data-reveal>
           <SectionHeader id="metodo-titulo" eyebrow={method.eyebrow} title={method.title} intro={method.intro} />

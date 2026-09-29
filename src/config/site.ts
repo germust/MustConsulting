@@ -76,10 +76,10 @@ export const siteConfig = {
 
   social: {
     /**
-     * Perfil de LinkedIn. Aparece en Sobre Must, Contacto, Footer y en los
-     * datos estructurados (JSON-LD). Si se deja vacío, el enlace no se muestra.
+     * Página de empresa en LinkedIn. Aparece en Sobre Must, Contacto, Footer y
+     * en los datos estructurados (JSON-LD). Si se deja vacía, el enlace no se muestra.
      */
-    linkedin: "https://www.linkedin.com/in/mustconsulting",
+    linkedin: "https://www.linkedin.com/company/mustconsulting/",
   },
 
   /** Archivos de marca ubicados en /public/brand. */

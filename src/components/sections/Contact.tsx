@@ -32,7 +32,7 @@ export function Contact() {
   const serviceOptions = [...services.items.map((service) => service.title), "Otro / todavía no lo sé"];
 
   return (
-    <section id="contacto" aria-labelledby="contacto-titulo" className="relative overflow-hidden bg-navy-2 py-20 text-white sm:py-24 lg:py-32">
+    <section id="contacto" aria-labelledby="contacto-titulo" className="relative overflow-hidden bg-navy-2 py-12 text-white sm:py-16 lg:py-20">
       <LinePattern tone="dark" className="absolute -top-24 -right-24 hidden w-[34rem] opacity-80 lg:block" />
 
       <Container className="relative grid gap-14 lg:grid-cols-12 lg:gap-12">
@@ -61,8 +61,8 @@ export function Contact() {
             {social.linkedin ? (
               <ContactItem icon={<LinkedinIcon {...iconProps} />} label="LinkedIn">
                 <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className={contactLinkClass}>
-                  Ver perfil
-                  <span className="sr-only"> de {founder.name} en LinkedIn (se abre en una pestaña nueva)</span>
+                  Ver página
+                  <span className="sr-only"> de Must Consulting en LinkedIn (se abre en una pestaña nueva)</span>
                 </a>
               </ContactItem>
             ) : null}

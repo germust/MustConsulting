@@ -32,11 +32,11 @@ export function JsonLd() {
       { "@type": "City", name: location.city },
       { "@type": "Country", name: location.country },
     ],
+    ...(social.linkedin ? { sameAs: [social.linkedin] } : {}),
     founder: {
       "@type": "Person",
       name: founder.name,
       jobTitle: founder.role,
-      ...(social.linkedin ? { sameAs: [social.linkedin] } : {}),
     },
     contactPoint: {
       "@type": "ContactPoint",

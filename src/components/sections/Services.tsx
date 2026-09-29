@@ -9,7 +9,7 @@ import { revealDelay } from "@/lib/reveal";
 
 export function Services() {
   return (
-    <section id="servicios" aria-labelledby="servicios-titulo" className="bg-ivory py-20 sm:py-24 lg:py-32">
+    <section id="servicios" aria-labelledby="servicios-titulo" className="bg-ivory py-12 sm:py-16 lg:py-20">
       <Container>
         <div data-reveal>
           <SectionHeader id="servicios-titulo" eyebrow={services.eyebrow} title={services.title} intro={services.intro} />

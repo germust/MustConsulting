@@ -10,7 +10,7 @@ export function About() {
   const { founder, location, social } = siteConfig;
 
   return (
-    <section id="sobre-must" aria-labelledby="sobre-titulo" className="bg-white py-20 sm:py-24 lg:py-32">
+    <section id="sobre-must" aria-labelledby="sobre-titulo" className="bg-white py-12 sm:py-16 lg:py-20">
       <Container className="grid gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7 lg:pr-10" data-reveal>
           <SectionHeader id="sobre-titulo" eyebrow={about.eyebrow} title={about.title} />
@@ -69,7 +69,7 @@ export function About() {
                 icon={<ArrowUpRight size={18} strokeWidth={1.75} />}
                 className="mt-8"
               >
-                Ver perfil en LinkedIn
+                Must Consulting en LinkedIn
               </ButtonLink>
             ) : null}
           </div>

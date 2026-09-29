@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function EngagementModels() {
   return (
-    <section id="modalidades" aria-labelledby="modalidades-titulo" className="bg-ivory py-20 sm:py-24 lg:py-32">
+    <section id="modalidades" aria-labelledby="modalidades-titulo" className="bg-ivory py-12 sm:py-16 lg:py-20">
       <Container>
         <div data-reveal>
           <SectionHeader id="modalidades-titulo" eyebrow={engagementModels.eyebrow} title={engagementModels.title} />
